@@ -1,0 +1,102 @@
+﻿using PhotoViewer.Controller;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PhotoViewer.Model
+{
+    [Serializable]
+    public class Picture
+    {
+        private string mId;
+        private string mIdAlbum;
+
+        private string mTitle;
+        private string mCategory;
+        private string mDate;
+        private string mRating;
+        private string mComment;
+
+        private int mPosition;
+        private string mPath;
+        private string mType;
+
+        public Picture() { }
+
+        public Picture(string idAlbum)
+        {
+            Id = Guid.NewGuid().ToString();
+
+            Title = null;
+            Date = DateTime.Today.ToShortDateString();
+
+            IdAlbum = idAlbum;
+
+            Position = -1;
+            Path = AppManager.ROOT_FOLDER + AppManager.SLASH_SEPARATOR + IdAlbum + AppManager.SLASH_SEPARATOR + Id;
+        }
+
+        public string Id
+        {
+            get { return this.mId; }
+            set { this.mId = value; }
+        }
+
+        public string IdAlbum
+        {
+            get { return this.mIdAlbum; }
+            set { this.mIdAlbum = value; }
+        }
+
+        public string Title
+        {
+            get { return this.mTitle; }
+            set { this.mTitle = value; }
+        }
+
+        public string Type
+        {
+            get { return this.mType; }
+            set { this.mType = value; }
+        }
+
+        public string Path
+        {
+            get { return this.mPath; }
+            set { this.mPath = value; }
+        }
+
+        public string Category
+        {
+            get { return this.mCategory; }
+            set { this.mCategory = value; }
+        }
+
+        public string Date
+        {
+            get { return this.mDate; }
+            set { this.mDate = value; }
+        }
+
+        public int Position
+        {
+            get { return this.mPosition; }
+            set { this.mPosition = value; }
+        }
+
+        public string Comment
+        {
+            get { return this.mComment; }
+            set { this.mComment = value; }
+        }
+
+        public string Rating
+        {
+            get { return this.mRating; }
+            set { this.mRating = value; }
+        }
+    }
+}

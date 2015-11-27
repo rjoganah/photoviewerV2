@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Diagnostics;
+using PhotoViewer.Model;
+
+namespace PhotoViewer
+{
+    public partial class ListViewAlbumItemMenuStrip : UserControl
+    {
+        public delegate void MessageDelete(Album album);
+        public event MessageDelete OnMessageDelete;
+
+        public delegate void MessageRename();
+        public event MessageRename OnMessageRename;
+
+        public delegate void MessageAddPicture(Album album);
+        public event MessageAddPicture OnMessageAddPicture;
+
+        public delegate void MessageProperty(Album album);
+        public event MessageProperty OnMessageProperty;
+
+        private int mPositonAlbum;
+
+        private Album mAlbum;
+
+        public ListViewAlbumItemMenuStrip()
+        {
+            InitializeComponent();
+        }
+
+        public Album Album
+        {
+            get { return mAlbum; }
+            set { mAlbum = value; }
+        }
+
+        public int PositionAlbum
+        {
+            get { return mPositonAlbum; }
+            set { mPositonAlbum = value; }
+        }
+
+        public void Show(Point point)
+        {
+            this.contextMenuStrip1.Show(point);
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OnMessageDelete(Album);
+        }
+
+        private void renameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OnMessageRename();
+        }
+
+        private void addAPictureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OnMessageAddPicture(Album);
+        }
+
+        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OnMessageProperty(Album);
+        }
+    }
+}

@@ -1,0 +1,17 @@
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\bin\Debug\PhotoViewer.exe.config
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\bin\Debug\PhotoViewer.exe
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\bin\Debug\PhotoViewer.pdb
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.ButtonCustom.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.DialogAlbumInfo.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.DialogMoveOrCopy.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.DialogPictureInfo.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.PictureBoxCustom.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.FormMain.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.ListViewAlbumItemMenuStrip.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.ListViewCustom.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.PictureBoxMenuStrip.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.ProgressForm.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.Properties.Resources.resources
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.csproj.GenerateResource.Cache
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.exe
+C:\Users\Robee\Documents\Visual Studio 2012\Projects\photoviewerV2\PhotoViewer\obj\Debug\PhotoViewer.pdb

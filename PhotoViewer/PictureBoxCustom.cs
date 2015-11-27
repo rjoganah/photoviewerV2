@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using PhotoViewer.Model;
+
+namespace PhotoViewer
+{
+    public partial class PictureBoxCustom : UserControl
+    {
+        private Control mControl;
+        private Picture mPicture;
+
+        private Boolean mSelected = false;
+
+        public PictureBoxCustom(string text)
+        {
+            InitializeComponent();
+        }
+
+        public PictureBoxCustom(Control control)
+        {
+            InitializeComponent();
+            Control = control;
+        }
+
+        public Control Control
+        {
+            get { return this.mControl; }
+            set { this.mControl = value; }
+        }
+
+        public Picture Picture
+        {
+            get { return this.mPicture; }
+            set { this.mPicture = value; }
+        }
+
+        public ToolTip ToolTip
+        {
+            get { return this.toolTip; }
+        }
+
+        public Boolean Selected
+        {
+            get { return this.mSelected; }
+            set { this.mSelected = value; }
+        }
+
+        public PictureBox PictureBox
+        {
+            get { return this.pictureBox; }
+        }  
+    }
+}

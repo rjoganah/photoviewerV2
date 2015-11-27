@@ -1,0 +1,149 @@
+﻿using PhotoViewer.Model;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Serialization;
+
+namespace PhotoViewer.Controller
+{
+    [Serializable]
+    public class AlbumManager
+    {
+        // Other properties of the application
+        private List<Album> mListAlbum;
+
+        public AlbumManager()
+        {
+            mListAlbum = new List<Album>();
+
+            // Chargement des albums etc...
+        }
+
+        [XmlArray("Albums")]
+        public List<Album> ListAlbum
+        {
+            get { return this.mListAlbum; }
+            set { this.mListAlbum = value; }
+        }
+
+        public void CreateAlbumFolder(string path)
+        {
+            System.IO.Directory.CreateDirectory(path);
+        }
+
+        /**
+         * Ajoute un album a la banque de donnees
+         * Possede comme titre : Album0, Album1, etc... par defaut
+         * Retourne TRUE si ajout reussi, FALSE sinon
+         **/
+        public Boolean AddAlbum(Album album)
+        {
+            if (album != null)
+            {
+                album.Title = "Album" + ListAlbum.Count;
+                ListAlbum.Add(album);
+                return true;
+            }
+
+            return false;
+        }
+
+        /**
+         * Creer un item Album qui sera ajoute a la ListView.
+         * Retourne l'item creer avec le nom par defaut
+         **/
+        public ListViewItem CreateListViewItemAlbum(Album album)
+        {
+            ListViewItem item = new ListViewItem();
+
+            item.Text = album.Title;
+            item.Tag = album;
+
+            return item;
+        }
+
+        public void DeleteAlbum(Album album)
+        {
+            // TODO
+            // Delete les photos au chemin racine avant d'effacer les data.
+
+            // Supprime Dossier Album + Photo dedans
+            System.IO.Directory.Delete(album.Path, true);
+
+            album.ListPicture.Clear();
+            album.ListPicture = null;
+            album.Keywords.Clear();
+            album.Keywords = null;
+            album.Id = null;
+            album.Path = null;
+            album.Title = null;
+            album.Subtitle = null;
+            album.Position = -1;
+        }
+
+        public void DeleteAlbumById(string id)
+        {
+            foreach (Album a in mListAlbum)
+            {
+                if (a.Id == id)
+                {
+                    this.DeleteAlbum(a);
+                    ListAlbum.Remove(a);
+                    break;
+                }
+            }
+        }
+
+        public void RenameAlbum(Album album, string title)
+        {
+            album.Title = title;
+        }
+
+        public void RenameAlbumById(string id, string title)
+        {
+            foreach (Album a in mListAlbum)
+            {
+                if (a.Id == id)
+                {
+                    this.RenameAlbum(a, title);
+                    break;
+                }
+            }
+        }
+
+        public void DeletePictureById(Album album, PictureBoxCustom pictBox)
+        {
+            if (album.Id == pictBox.Picture.IdAlbum)
+            {
+                foreach (Picture p in album.ListPicture)
+                {
+                    if (p.IdAlbum == album.Id && p.Id == pictBox.Picture.Id)
+                    {
+                        if (DeletePicture(p))
+                            album.ListPicture.Remove(p);
+                        break;
+                    }
+                }
+            }
+        }
+
+        public Boolean DeletePicture(Picture pict)
+        {
+            try
+            {
+                // Supprime Photo
+                System.IO.File.Delete(pict.Path + pict.Type);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+    }
+}
